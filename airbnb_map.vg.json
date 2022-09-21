@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 800,
+    "title": {
+        "text": "Price Per Night of Entire Airbnb Homes and Apartments on 07 Dec 2018",
+        "fontSize": "20"
+
+    },
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [{
+            "data": {
+                "url": "data/neighbourhoods.geojson",
+                "format": {
+                    "property": "features"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgray",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": {
+                "url": "data/listings_summary_cleansed.csv"
+            },
+            "transform": [
+                {"filter": "datum.room_type == 'Entire home/apt'"}
+            ],
+            "mark": {
+                "type": "point",
+                "filled": "true",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "price",
+                    "type": "quantitative",
+                    "title": "Price per night",
+                    "scale": {
+                        "scheme": "blues",
+                        "domain": [0,100,200,300,400,500,600,700,800,900,1000]
+                    }
+                }
+            }
+        }
+    ]
+}
