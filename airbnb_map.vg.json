@@ -5,7 +5,6 @@
     "title": {
         "text": "Price Per Night of Entire Airbnb Homes and Apartments on 07 Dec 2018",
         "fontSize": "20"
-
     },
     "projection": {
         "type": "equalEarth"
@@ -27,15 +26,13 @@
             "data": {
                 "url": "data/listings_summary_cleansed.csv"
             },
-            "transform": [
-                {"filter": "datum.room_type == 'Entire home/apt'"}
-            ],
+            "transform": [{
+                "filter": "datum.room_type == 'Entire home/apt'"
+            }],
             "mark": {
                 "type": "point",
-                "filled": "true",
-                "tooltip": {
-                    "content": "data"
-                }
+                "filled": true,
+                "tooltip": true
             },
             "encoding": {
                 "longitude": {
@@ -52,9 +49,26 @@
                     "title": "Price per night",
                     "scale": {
                         "scheme": "blues",
-                        "domain": [0,100,200,300,400,500,600,700,800,900,1000]
+                        "domain": [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
                     }
-                }
+                },
+                "tooltip": [{
+                        "field": "price",
+                        "type": "quantitative",
+                        "title": "Price per night",
+                        "format": "$.2f"
+                    },
+                    {
+                        "field": "room_type",
+                        "type": "nominal",
+                        "title": "Room type"
+                    },
+                    {
+                        "field": "neighbourhood",
+                        "type": "nominal",
+                        "title": "Neighbourhood"
+                    }
+                ]
             }
         }
     ]
