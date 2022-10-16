@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 250,
-    "height": 250,
+    "width": 400,
+    "height": 400,
     "title": {
         "text": "Room Type Breakdown",
         "fontSize": "13",
@@ -36,7 +36,10 @@
             "scale": {
                 "scheme": "set2"
             },
-            "title": "Room Type"
+            "title": "Room Type",
+            "legend": {
+                
+            }
         },
         "tooltip": [
             {
