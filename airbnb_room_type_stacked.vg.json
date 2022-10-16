@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": {
+        "text": "Room Type",
+        "fontSize": "13",
+        "font": "Montserrat"
+    },
+    "data": {
+        "url": "data/listings_summary_dec18.csv"
+    },
+    "transform": [{
+        "aggregate": [{
+            "op": "count",
+            "as": "neighbourhood_room_count"
+        }],
+        "groupby": ["room_type", "neighbourhood"]
+    }],
+    "mark": {
+        "type": "bar",
+        "tooltip": true
+    },
+    "encoding": {
+        "x": {
+            "field": "neighbourhood_room_count",
+            "type": "quantitative",
+            "stack": "zero",
+            "title": "Number of listings"
+        },
+        "y": {
+            "field": "neighbourhood",
+            "type": "nominal",
+            "title": "Neighbourhood",
+            "sort": "-x"
+        },
+        "color": {
+            "field": "room_type",
+            "title": "Room Type",
+            "type": "nominal",
+            "scale": {
+                "scheme": "set2"
+            }
+        }
+    }
+}

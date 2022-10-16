@@ -10,14 +10,72 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-    <script src="airbnb_vis.js"></script>
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+    <script src="airbnb_vis.js"></script>
     <title>Melbourne Airbnb Market</title>
+
 </head>
 
 <body>
-    <h1>Melbourne Airbnb Market</h1>
-    <div id="map">
+    <div class="page">
+        <div class="center">
+            <h1 class="title-text"><b>Melbourne Airbnb Market</b></h1>
+            <p class="body-text">This page demonstrates how you can use pure.css grid for your layout.</p>
+        </div>
+
+        <div class="divider center">
+            <p><b>Overview Of Neighbourhoods</b></p>
+        </div>
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                    <div id="average_price_map" class="vis-container">
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="room_type_stacked" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <div class="divider center">
+            <p><b>Breakdown</b></p>
+        </div>
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                    <div id="room_type_pie" class="vis-container">
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="airbnb_property_type" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <div id="airbnb_scatterplot">
+        </div>
+
+        <div id="airbnb_heatmap">
+        </div>
     </div>
 </body>
 

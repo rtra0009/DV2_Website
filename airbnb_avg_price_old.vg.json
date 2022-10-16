@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 400,
+    "title": {
+        "text": "Average Price in Each Melbourne Neighbourhood",
+        "fontSize": "14",
+        "font": "Montserrat"
+    },
+    "projection": {
+        "type": "mercator"
+    },
+    "data": {
+        "url": "data/neighbourhoods.geojson",
+        "format": {
+            "property": "features"
+        }
+    },
+    "transform": [
+        {
+            "lookup": "properties.neighbourhood",
+            "from": {
+                "data": {
+                    "url": "data/listings_summary_cleansed.csv"
+                },
+                "key": "neighbourhood",
+                "fields": ["price"]
+            }
+        }
+
+    ],
+    "mark": {
+        "type": "geoshape"
+    },
+    "encoding": {
+        "color": {
+            "field": "price",
+            "type": "quantitative"
+        }
+    }
+}

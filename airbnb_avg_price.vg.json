@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": {
+        "text": "Average Price",
+        "fontSize": "14",
+        "font": "Montserrat"
+    },
+    "projection": {
+        "type": "mercator"
+    },
+    "data": {
+        "url": "data/neighbourhoods.geojson",
+        "format": {
+            "property": "features"
+        }
+    },
+    "transform": [
+        {
+            "lookup": "properties.neighbourhood",
+            "from": {
+                "data": {
+                    "url": "data/neighbourhood_summary.csv"
+                },
+                "key": "neighbourhood",
+                "fields": ["avg_price", "neighbourhood"]
+            }
+        }
+
+    ],
+    "mark": {
+        "type": "geoshape"
+    },
+    "encoding": {
+        "color": {
+            "field": "avg_price",
+            "type": "quantitative",
+            "title": "Average Price (AUD)",
+            "scale": {
+                "type": "linear",
+                "scheme": "reds"
+            }
+        },
+        "tooltip": [
+            {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood"
+            },
+            {
+                "field": "avg_price",
+                "type": "quantitative",
+                "title": "Average Price",
+                "format": "$.2f"
+            }
+        ]
+    }
+}

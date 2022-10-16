@@ -1,13 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 800,
+    "width": 400,
+    "height": 400,
     "title": {
         "text": "Price Per Night of Entire Places on Airbnb on 07 Dec 2018",
-        "fontSize": "20"
+        "fontSize": "14",
+        "font": "Montserrat"
     },
     "projection": {
-        "type": "equalEarth"
+        "type": "mercator"
     },
     "layer": [{
             "data": {

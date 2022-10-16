@@ -1,0 +1,47 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 250,
+    "height": 250,
+    "title": {
+        "text": "Room Type Popularity",
+        "fontSize": "13",
+        "font": "Montserrat"
+    },
+    "data": {
+        "url": "data/cleansed_listings_dec18.csv"
+    },
+    "transform": [{
+        "filter": {"and": [
+          {"field": "review_scores_rating", "valid": true},
+          {"field": "price", "valid": true}
+        ]}
+      },
+      {
+        "filter": "datum.review_scores_rating > 0 && datum.price < 4500"
+    }],
+    "mark": {
+        "type": "rect",
+        "tooltip": true
+    },
+    "encoding": {
+        "x": {
+          "bin": {"maxbins":10},
+          "field": "review_scores_rating",
+          "type": "quantitative"
+        },
+        "y": {
+          "bin": {"maxbins": 20},
+          "field": "price",
+          "type": "quantitative"
+        },
+        "color": {
+          "aggregate": "count",
+          "type": "quantitative"
+        }
+      },
+      "config": {
+        "view": {
+          "stroke": "transparent"
+        }
+      }
+}

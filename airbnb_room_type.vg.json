@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 250,
+    "height": 250,
+    "title": {
+        "text": "Room Type Breakdown",
+        "fontSize": "13",
+        "font": "Montserrat"
+    },
+    "data": {
+        "url": "data/cleansed_listings_dec18.csv"
+    },
+    "transform": [
+        {
+            "aggregate": [{
+                "op": "count",
+                "field": "room_type",
+                "as": "room_type_count"
+            }],
+            "groupby": ["room_type"]
+        }
+
+    ],
+    "mark": {
+        "type": "arc",
+        "innerRadius": 60
+    },
+    "encoding": {
+        "theta": {
+            "field": "room_type_count",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "room_type",
+            "type": "nominal",
+            "scale": {
+                "scheme": "set2"
+            },
+            "title": "Room Type"
+        },
+        "tooltip": [
+            {
+                "field": "room_type",
+                "type": "nominal",
+                "title": "Room Type"
+            },
+            {
+                "field": "room_type_count",
+                "type": "quantitative",
+                "title": "Number of listings"
+            }
+        ]
+    }
+}

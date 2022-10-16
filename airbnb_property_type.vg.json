@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 250,
+    "height": 250,
+    "title": {
+        "text": "Property Type Breakdown",
+        "fontSize": "13",
+        "font": "Montserrat"
+    },
+    "data": {
+        "url": "data/cleansed_listings_dec18.csv"
+    },
+    "transform": [
+        {
+            "aggregate": [{
+                "op": "count",
+                "field": "property_type",
+                "as": "property_type_count"
+            }],
+            "groupby": ["property_type"]
+        },
+        {
+            "filter": "datum.property_type_count > 400"
+        }
+
+    ],
+    "mark": {
+        "type": "arc",
+        "innerRadius": 60
+    },
+    "encoding": {
+        "theta": {
+            "field": "property_type_count",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "property_type",
+            "type": "nominal",
+            "scale": {
+                "scheme": "set3"
+            },
+            "title": "Property Type"
+        },
+        "tooltip": [
+            {
+                "field": "property_type",
+                "type": "nominal",
+                "title": "Room Type"
+            },
+            {
+                "field": "property_type_count",
+                "type": "quantitative",
+                "title": "Number of listings"
+            }
+        ]
+    }
+}
