@@ -1,9 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 250,
-    "height": 250,
+    "width": "container",
+    "height": 400,
+    "autosize": {"contains": "padding", "resize": true, "type": "fit"},
     "title": {
-        "text": "Room Type Popularity",
+        "text": "Price vs Number of Guests",
         "fontSize": "13",
         "font": "Montserrat"
     },
