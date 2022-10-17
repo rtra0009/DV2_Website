@@ -23,7 +23,7 @@ vegaEmbed("#airbnb_heatmap", vg_5).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
-var vg_6 = "airbnb_property_type.vg.json";
-vegaEmbed("#airbnb_property_type", vg_6).then(function (result) {
+var vg_6 = "airbnb_map.vg.json";
+vegaEmbed("#airbnb_map", vg_6).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);

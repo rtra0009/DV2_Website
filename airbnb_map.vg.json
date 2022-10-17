@@ -1,9 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 400,
+    "width": "container",
+    "height": 350,
+    "autosize": {
+        "contains": "padding",
+        "resize": true,
+        "type": "fit"
+    },
     "title": {
-        "text": "Price Per Night of Entire Places on Airbnb on 07 Dec 2018",
+        "text": "Airbnb Listings",
         "fontSize": "14",
         "font": "Montserrat"
     },
@@ -25,11 +30,13 @@
         },
         {
             "data": {
-                "url": "data/listings_summary_cleansed.csv"
+                "url": "data/cleansed_listings_dec18.csv"
             },
-            "transform": [{
-                "filter": "datum.room_type == 'Entire home/apt'"
-            }],
+            "params": [{
+                "name": "room",
+                "select": {"type": "point", "fields": ["room_type"]},
+                "bind": "legend"
+              }],
             "mark": {
                 "type": "point",
                 "filled": true,
@@ -47,12 +54,25 @@
                 "color": {
                     "field": "price",
                     "type": "quantitative",
-                    "title": "Price per night",
+                    "title": "Price Per Night (AUD)",
                     "scale": {
                         "scheme": "blues",
                         "domain": [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
                     }
                 },
+                "shape": {
+                    "field": "room_type",
+                    "type": "nominal",
+                    "title": "Room Type",
+                    "scale": {
+                        "scheme": "set2"
+                    }
+                },
+                "opacity": {
+                    "condition": {"param": "room", "value": 1},
+                    "value": 0
+                  },
+
                 "tooltip": [{
                         "field": "price",
                         "type": "quantitative",
@@ -65,7 +85,7 @@
                         "title": "Room type"
                     },
                     {
-                        "field": "neighbourhood",
+                        "field": "neighborhood",
                         "type": "nominal",
                         "title": "Neighbourhood"
                     }
