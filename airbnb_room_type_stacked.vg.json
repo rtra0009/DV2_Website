@@ -1,47 +1,123 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": 350,
-    "autosize": {"contains": "padding", "resize": true, "type": "fit"},
-    "title": {
-        "text": "Room Type",
-        "fontSize": "13",
-        "font": "Montserrat"
-    },
     "data": {
         "url": "data/listings_summary_dec18.csv"
     },
-    "transform": [{
-        "aggregate": [{
-            "op": "count",
-            "as": "neighbourhood_room_count"
-        }],
-        "groupby": ["room_type", "neighbourhood"]
-    }],
-    "mark": {
-        "type": "bar",
-        "tooltip": true
-    },
-    "encoding": {
-        "x": {
-            "field": "neighbourhood_room_count",
-            "type": "quantitative",
-            "stack": "zero",
-            "title": "Number of listings"
-        },
-        "y": {
-            "field": "neighbourhood",
-            "type": "nominal",
-            "title": "Neighbourhood",
-            "sort": "-x"
-        },
-        "color": {
-            "field": "room_type",
-            "title": "Room Type",
-            "type": "nominal",
-            "scale": {
-                "scheme": "set2"
+    "hconcat": [{
+            "title": {
+                "text": "Total Number of Listings",
+                "fontSize": "15",
+                "font": "Arial"
+            },
+            "width": "container",
+            "height": 350,
+            "transform": [{
+                "aggregate": [{
+                    "op": "count",
+                    "as": "neighbourhood_room_count"
+                }],
+                "groupby": ["neighbourhood"]
+            }],
+            "mark": {
+                "type": "bar",
+                "tooltip": true
+            },
+            "encoding": {
+                "x": {
+                    "field": "neighbourhood_room_count",
+                    "type": "quantitative",
+                    "stack": "zero",
+                    "title": "Number of listings"
+                },
+                "y": {
+                    "field": "neighbourhood",
+                    "type": "nominal",
+                    "title": "Neighbourhood",
+                    "sort": "-x"
+                }
+            },
+            "selection": {
+                "click1": {
+                    "encodings": ["y"],
+                    "type": "point"
+                }
             }
+        },
+        {
+            "width": "container",
+            "height": 350,
+            "title": {
+                "text": "Room Type Breakdown",
+                "fontSize": "15",
+                "font": "Arial"
+            },
+            "transform": [{
+                    "filter": {
+                        "selection": "click1"
+                    }
+                },
+                {
+
+                    "aggregate": [{
+                        "op": "count",
+                        "field": "room_type",
+                        "as": "room_type_count"
+                    }],
+                    "groupby": ["room_type"]
+                }
+            ],
+            "encoding": {
+                "theta": {
+                    "field": "room_type_count",
+                    "type": "quantitative",
+                    "stack": true
+                }
+            },
+            "layer": [
+                {
+                    "mark": {
+                        "type": "arc",
+                        "outerRadius": 140
+                    },
+                    "encoding": {
+                        "color": {
+                            "field": "room_type",
+                            "type": "nominal",
+                            "scale": {
+                                "range": ["#F5A6C2","#EECAEE", "#F8DEDE"]
+                            },
+                            "legend": {
+                                "title": "Room Type",
+                                "orient": "right"
+                            }
+                        },
+                        "tooltip": [{
+                                "field": "room_type",
+                                "type": "nominal",
+                                "title": "Room Type"
+                            },
+                            {
+                                "field": "room_type_count",
+                                "type": "quantitative",
+                                "title": "Number of listings"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "radius": 160
+                    },
+                    "encoding": {
+                        "text": {
+                            "field": "room_type_count",
+                            "type": "nominal"
+                        }
+                    }
+                }
+            ]
         }
-    }
+
+    ]
 }

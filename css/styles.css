@@ -1,9 +1,17 @@
-body * {
+* {
   font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
   font-weight: 900;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+h5 {
+  text-align: right;
 }
 
 body {
@@ -18,11 +26,24 @@ body {
 .title-text {
   color: #FF5A5F;
   font-size: 3vw;
+  font-weight: 1000;
 }
 
 .body-text {
   color: #484848;
-  font-size: 16px;
+  font-size: 15px;
+  width: 900px;
+  text-align: left;
+  margin: auto
+}
+
+.paragraph-text {
+  color: #484848;
+  font-size: 15px;
+}
+
+.colour-heading {
+  color: #484848;
 }
 
 .subbody-text {
@@ -46,7 +67,7 @@ body {
 .description h2,
 h1 {
   margin-top: 0px;
-  font-weight: 900;
+  font-weight: 550;
 }
 
 .description-right {

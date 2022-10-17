@@ -1,51 +1,75 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": 350,
-    "autosize": {"contains": "padding", "resize": true, "type": "fit"},
-    "title": {
-        "text": "Price vs Review Score",
-        "fontSize": "13",
-        "font": "Montserrat"
-    },
-    "data": {
-        "url": "data/cleansed_listings_dec18.csv"
-    },
-    "transform": [{
-        "filter": {"and": [
-          {"field": "review_scores_rating", "valid": true},
-          {"field": "price", "valid": true}
-        ]}
-      },
-      {
-        "filter": "datum.review_scores_rating > 0 && datum.price < 4500"
-    }],
-    "mark": {
-        "type": "rect",
-        "tooltip": true
-    },
-    "encoding": {
-        "x": {
-          "bin": {"maxbins":20},
-          "field": "review_scores_rating",
-          "type": "quantitative"
-        },
-        "y": {
-          "bin": {"maxbins": 50},
-          "field": "price",
-          "type": "quantitative"
-        },
-        "color": {
-          "aggregate": "count",
-          "type": "quantitative",
-          "scale": {
-            "domain": [0, 500, 1000, 2000, 5000, 10000, 15000]
-        }
-        }
-      },
-      "config": {
-        "view": {
-          "stroke": "transparent"
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "autosize": {
+    "contains": "padding",
+    "resize": true,
+    "type": "fit"
+  },
+  "title": {
+    "text": "Relationship Between Price and Review",
+    "fontSize": "15",
+    "font": "Arial"
+  },
+  "data": {
+    "url": "data/cleansed_listings_dec18.csv"
+  },
+  "transform": [{
+      "filter": {
+        "and": [{
+            "field": "review_scores_rating",
+            "valid": true
+          },
+          {
+            "field": "price",
+            "valid": true
+          }
+        ]
       }
+    },
+    {
+      "filter": "datum.review_scores_rating > 0 && datum.price < 4500 && datum.price > 0"
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "bin": {
+        "maxbins": 20
+      },
+      "field": "review_scores_rating",
+      "type": "quantitative",
+      "title": "Review scores (binned)"
+    },
+    "y": {
+      "bin": {
+        "maxbins": 50
+      },
+      "field": "price",
+      "type": "quantitative",
+      "title": "Price (binned)"
+    },
+    "color": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of listings",
+      "scale": {
+        "domain": [0, 1000, 2000, 3000, 4000, 5000],
+        "range": ["#edf8b1", "#7fcdbb"]
+      },
+      "legend": {
+        "title": "Number of listings",
+        "orient": "right"
+      }
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }

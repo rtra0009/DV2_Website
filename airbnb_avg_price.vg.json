@@ -4,9 +4,9 @@
     "height": 350,
     "autosize": {"contains": "padding", "resize": true, "type": "fit"},
     "title": {
-        "text": "Average Price",
-        "fontSize": "14",
-        "font": "Montserrat"
+        "text": "Average Price Of Different Neighbourhoods",
+        "fontSize": "15",
+        "font": "Arial"
     },
     "projection": {
         "type": "mercator"
@@ -40,7 +40,9 @@
             "title": "Average Price (AUD)",
             "scale": {
                 "type": "linear",
-                "scheme": "reds"
+                "scheme": "greens",
+                "domain": [0, 80, 100, 120, 140, 160, 180, 200, 220, 240],
+                "range": ["#fde0dd", "#fa9fb5"]
             }
         },
         "tooltip": [

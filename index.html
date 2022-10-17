@@ -32,7 +32,15 @@
     <div class="page">
         <div class="center">
             <h1 class="title-text"><b>Melbourne Airbnb Market</b></h1>
-            <p class="body-text">This page demonstrates how you can use pure.css grid for your layout.</p>
+            <p class="body-text">
+                Airbnb, short for "Air Bed and Breakfast", is a hospitality company that operates an online platform
+                that allows users to rent out short-term stays and experiences.
+                Since its beginning in 2008, Airbnb has become a powerhouse in the hospitality industry. It has given
+                users cheaper alternatives property
+                as well provide luxury product offerings. Using Airbnb Open Data compiled on 07 Dec 2018, we will
+                further explore and discover what Airbnb has to offer in Melbourne.
+
+            </p>
         </div>
 
         <div class="divider">
@@ -47,91 +55,118 @@
                 </div>
             </div>
             <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <h2>Two Columns Layout</h2>
-                    <p>The first column contains text and the second column contains a visualisation.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+                <div class="description description-left paragraph-text">
+                    <p>As expected for a large city such as Melbourne, most Airbnb listings are <b>centered around the
+                            CBD</b>.
+                        The density of listings decreases as the distance away from
+                        the CBD increases.
+                    </p>
+                    <p>However, this does not apply to pricing of listings. <b>Prices varies from neighbourhood to
+                            neighbourhood with no apparent pattern</b>.
+                        This could be attributed to the fact that many of Melbourne's most popular tourist destination
+                        are far from the CBD and is spread around all of Melbourne.
+                    </p>
+                    <p></p>
+                    <p><i>Click on a room type (left) to explore different listings by their room type</i></p>
                 </div>
             </div>
         </div>
         <!-- end pure grid group -->
 
         <div class="divider center">
-            <h3><b>Breakdown</b></h3>
+            <h3><b>Breakdown By Neighbourhood</b></h3>
         </div>
 
         <!-- pure grid group -->
         <div class="pure-g">
-            <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <div id="room_type_stacked" class="vis-container">
+            <div class="pure-u-1-1">
+                <div>
+                    <div id="room_type_stacked" class="vis-container center">
                     </div>
                 </div>
             </div>
-            <div class="pure-u-1-2">
-                <div id="room_type_pie" class="vis-container"></div>
-            </div>
         </div>
         <!-- end pure grid group -->
 
-        <!-- pure grid group -->
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <h2>Two Columns Layout</h2>
-                    <p>The first column contains text and the second column contains a visualisation.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
-                </div>
-            </div>
-            <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <h2>Two Columns Layout</h2>
-                    <p>The first column contains text and the second column contains a visualisation.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
-                </div>
+        <div class="pure-u-1-1">
+            <h3 class="colour-heading">Further Breakdown of Property Type</h3>
+            <div class="description description-left paragraph-text">
+                <p>
+                    When closely examining different neighbourhoods, <b>Melbourne, Port Phillip and Yarra </b>has the
+                    most Airbnb listings.
+                </p>
+                <p>
+                    For overall offerings, <b>the most popular one is entire home or apartment followed by private room and
+                        then shared room</b>.
+                    Shared room is significantly less popular than the other two offerings. Despite this, some
+                    neighbourhood's room type offering does not follow this overall trend.
+                    For neighbourhoods such as <b>Monash, Wyndham and Manningham</b>, private room offerings outweights entire
+                    room or apartment offerings.
+                </p>
+                <p><i>Click on a bar in the Total Number of Listings chart to breakdown different neighbourhoods by
+                        their room type offerings</i></p>
             </div>
         </div>
-        <!-- end pure grid group -->
 
         <div class="divider">
-            <h3><b>Relationship With Price</b></h3>
+            <h3><b>Breakdown by Price</b></h3>
         </div>
 
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <div id="average_price_map" class="vis-container">
-                    </div>
+                <div id="average_price_map" class="vis-container">airbnb_map
+
                 </div>
             </div>
             <div class="pure-u-1-2">
-                <div id="airbnb_heatmap" class="vis-container"></div>
-            </div>
-            <div class="pure-u-1-1">
-                <h2>Multiple Visualisations</h1>
-                    <p>The first column contains text and the second column contains a visualisation.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+                <h3 class="colour-heading">How Much Should You Pay?</h3>
+                <div class="description description-left paragraph-text">
+                    <p>For many travellers, one of the most important factor in determining where to visit is price for accommodation.
+                        When examing prices closer by neighbourhoods, it is clear that <b>Yarra Ranges, Casey and Bayside</b> are the most expensive.
+                        This could be due to a few factors:
+                        <ul>
+                            <li>It could be a tourism hotspot</li>
+                            <li>Property prices for the area is high</li>
+                            <li>Close proximity to Melbourne CBD</li>
+                            <li>Close proximity to coastal areas and beaches</li>
+                        </ul>
+                    </p>
+                </div>
             </div>
         </div>
         <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="airbnb_heatmap" class="vis-container">airbnb_map
+
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <h3 class="colour-heading">Do You Get What You Pay For?</h3>
+                <div class="description description-left paragraph-text">
+                    <p>
+                        With so many options available, a lot of travellers would look at reviews to determine if a place is worth it.
+                        Not only that, some travellers would also be more willing to pay more for a place that has better reviews.
+                    </p>
+                    <p>The heatmap (left) highlights that for Melbourne a lot of listings are around $100 per night but is still score very high for their review.
+                        However, it is important to note that in the lower price bracket, review scores varies all the way from 20-25 to 95-100 range.
+                        <b>Generally, 
+                            higher priced listings does have better reviews</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <div>
+            <h5>Visualisation by Rachelle Tran</h5>
+            <h5>Data Source: <a href="https://www.kaggle.com/code/gauravdiwan/melbourne-airbnb-eda/notebook">Kaggle Data Source</a></h5>
+        </div>
     </div>
+
 
 
 </body>

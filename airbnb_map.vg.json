@@ -9,8 +9,8 @@
     },
     "title": {
         "text": "Airbnb Listings",
-        "fontSize": "14",
-        "font": "Montserrat"
+        "fontSize": "15",
+        "font": "Arial"
     },
     "projection": {
         "type": "mercator"
@@ -55,9 +55,13 @@
                     "field": "price",
                     "type": "quantitative",
                     "title": "Price Per Night (AUD)",
+                    "legend": {
+                        "orient": "bottom-left"
+                    },
                     "scale": {
                         "scheme": "blues",
-                        "domain": [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+                        "domain": [0, 100, 200, 300, 400, 500, 600, 700, 1000],
+                        "range": ["#e7e1ef", "#c994c7"]
                     }
                 },
                 "shape": {
